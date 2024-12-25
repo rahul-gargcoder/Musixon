@@ -14,7 +14,7 @@ const googlestrategy=require('passport-google-oauth20')
 const expresssession=require('express-session')
 const hbs=require('hbs')
 const Razorpay=require('razorpay');
-require('dotenv').config()
+require('dotenv').config();
 const app = express()
 app.use(express.json());
 app.use(express.static(path.join(__dirname,'../views')));
@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(cookieParser());
 app.listen(3000);
 var {protectroute,authprotect}=require('../middlewares/protectroute')
+const router=require('./save')
 const jwt_key=process.env.jwt_key
 app.set('view engine','hbs');
 const hbs_url=path.join(__dirname,'../views/html')
@@ -42,6 +43,7 @@ var googlelogindata={
 const forgetroute=require('./forgotpassword')
 app.use('/forgotpassword',forgetroute);
 
+app.use('/',router)
 
 // logout route--------------->>>
 const logoutroute=require('./logout');
