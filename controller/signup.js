@@ -329,7 +329,7 @@ else{
 
 
 const temps=express.Router();
-app.use('/main',temps)
+app.use('/',temps)
 temps
 .route('/')
 .get(protectroute,gettemp)
