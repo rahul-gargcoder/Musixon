@@ -287,7 +287,7 @@ async function logindata(req,res,next){
          let u_id=data['_id'];
        var token=jwt.sign({payload:u_id},jwt_key);
         res.cookie('login',token,{maxAge:10000000,secure:true,httpOnly:true});
-        res.redirect('/main');
+        res.redirect('/');
        
      }
      else{
@@ -429,7 +429,7 @@ try {
             if(googledata_db!=null&&googledata_db.flag==true){
                 let token=jwt.sign({payload:googledata_db.id},jwt_key);
                 res.cookie('login',token,{maxAge:10000000,secure:true,httpOnly:true});
-                res.redirect('/main')
+                res.redirect('/')
             }
             else if(googledata_db!=null&&googledata_db.flag==false){
                 res.redirect('/alreadyexist')
@@ -440,7 +440,7 @@ try {
                 const googledata=await usermodel.create(google_userdata);
                 let token=jwt.sign({payload:googledata.id},jwt_key);
                 res.cookie('login',token,{maxAge:10000000,secure:true,httpOnly:true});
-                res.redirect('/main')
+                res.redirect('/')
             }
                 } catch (error) {
                 res.render('error',{
