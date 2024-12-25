@@ -608,7 +608,7 @@ function fun1(s){
 
 let subscribebtn=document.getElementById('subscribebtn');
 subscribebtn.addEventListener('click',()=>{
-    window.open('http://localhost:3000/payment')
+    window.open('https://musixon-aisy.onrender.com/payment')
 })
 
 
