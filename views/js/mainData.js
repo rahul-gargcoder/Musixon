@@ -55,7 +55,7 @@ export async function allDetail1(songname){
   trackDetail.trackDuration=searchResult.duration;
   trackDetail.trackId=searchResult.primary_artists_id;
   trackDetail.trackLink=searchResult.perma_url;
-  await axios.post('http://localhost:3000/savesong',{
+  await axios.post('https://musixon-aisy.onrender.com/savesong',{
     url:trackDetail.trackLink
   })
   return trackDetail;
